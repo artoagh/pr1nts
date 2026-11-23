@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Choose your 3D printing order at Pr1nts.">
   <title>Products | Pr1nts</title>
 
   <style>
@@ -48,7 +47,6 @@
       color: #aaa;
       text-decoration: none;
       font-size: 15px;
-      transition: 0.2s;
     }
 
     nav a:hover,
@@ -64,18 +62,14 @@
       flex: 1;
     }
 
-    .products-heading {
-      margin-bottom: 35px;
-    }
-
     h1 {
       font-size: clamp(32px, 5vw, 54px);
       margin-bottom: 15px;
     }
 
-    .products-heading p {
+    .subtitle {
       color: #999;
-      font-size: 16px;
+      margin-bottom: 35px;
     }
 
     .products-grid {
@@ -85,24 +79,23 @@
     }
 
     .product-card {
-      display: block;
       background: #191a1f;
       border: 1px solid #303036;
       border-radius: 12px;
       padding: 30px;
       min-height: 190px;
       cursor: pointer;
-      transition: 0.25s;
       text-align: left;
       color: white;
-      font-family: inherit;
       width: 100%;
+      font-family: inherit;
+      transition: 0.25s;
     }
 
     .product-card:hover {
       border-color: #d9a66b;
-      transform: translateY(-4px);
       background: #202126;
+      transform: translateY(-4px);
     }
 
     .product-number {
@@ -137,7 +130,7 @@
       max-width: 700px;
     }
 
-    .order-form.show {
+    .order-form.visible {
       display: block;
     }
 
@@ -152,15 +145,15 @@
       margin-bottom: 25px;
     }
 
-    .order-form label {
+    label {
       display: block;
       color: #ccc;
       margin: 18px 0 9px;
       font-size: 14px;
     }
 
-    .order-form input,
-    .order-form textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 13px;
       background: #101114;
@@ -172,12 +165,12 @@
       outline: none;
     }
 
-    .order-form input:focus,
-    .order-form textarea:focus {
+    input:focus,
+    textarea:focus {
       border-color: #d9a66b;
     }
 
-    .order-form textarea {
+    textarea {
       min-height: 120px;
       resize: vertical;
     }
@@ -269,29 +262,27 @@
 
   <main>
 
-    <div class="products-heading">
-      <h1>Choose what you need.</h1>
-      <p>Select a category to make an order.</p>
-    </div>
+    <h1>Choose what you need.</h1>
+    <p class="subtitle">Select a category to make an order.</p>
 
     <div class="products-grid">
 
-      <button class="product-card"
-        onclick="openOrder('Part of something')">
+      <button type="button" class="product-card"
+        data-category="Part of something">
         <div class="product-number">01</div>
         <h2>Part of something</h2>
         <p>Order a custom 3D printed part or detail.</p>
       </button>
 
-      <button class="product-card"
-        onclick="openOrder('Fidget')">
+      <button type="button" class="product-card"
+        data-category="Fidget">
         <div class="product-number">02</div>
         <h2>Fidget</h2>
         <p>Order a fidget toy or something fun.</p>
       </button>
 
-      <button class="product-card"
-        onclick="openOrder('Something other')">
+      <button type="button" class="product-card"
+        data-category="Something other">
         <div class="product-number">03</div>
         <h2>Something other</h2>
         <p>Have another idea? Tell us what you need.</p>
@@ -299,8 +290,7 @@
 
     </div>
 
-    <form class="order-form" id="orderForm"
-      onsubmit="sendOrder(event)">
+    <form class="order-form" id="orderForm">
 
       <h2 id="formTitle">Make an order</h2>
 
@@ -337,10 +327,7 @@
         Send order
       </button>
 
-      <button
-        type="button"
-        class="cancel-button"
-        onclick="closeOrder()">
+      <button type="button" class="cancel-button" id="cancelButton">
         Cancel
       </button>
 
@@ -353,13 +340,19 @@
   </footer>
 
   <script>
-    function openOrder(category) {
-      const form = document.getElementById('orderForm');
+    document.addEventListener("DOMContentLoaded", function () {
 
-      document.getElementById('category').value = category;
+      const cards = document.querySelectorAll(".product-card");
+      const form = document.getElementById("orderForm");
+      const categoryInput = document.getElementById("category");
+      const formTitle = document.getElementById("formTitle");
+      const cancelButton = document.getElementById("cancelButton");
 
-      document.getElementById('formTitle').textContent =
-        'Order: ' + category;
+      cards.forEach(function (card) {
 
-      form.classList.add('show');
-    
+        card.addEventListener("click", function () {
+
+          const category = card.dataset.category;
+
+          categoryInput.value = category;
+          formTitle.textContent = "Order: " + ca
