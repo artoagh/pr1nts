@@ -1,350 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#171717">
-<title>GnK Prints</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pr1nts - Custom 3D printing and printed parts.">
+  <title>Pr1nts</title>
 
-<style>
-:root {
-  --bg: #101010;
-  --panel: #1b1b1b;
-  --text: #f4f1eb;
-  --muted: #aaa49a;
-  --accent: #d9a66b;
-  --line: rgba(255,255,255,.12);
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #101114;
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-}
+    header {
+      padding: 25px 8%;
+      border-bottom: 1px solid #292929;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-header {
-  min-height: 76px;
-  padding: 20px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  border-bottom: 1px solid var(--line);
-}
+    .brand {
+      color: #d9a66b;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-.brand {
-  font-weight: 800;
-  letter-spacing: .04em;
-  font-size: clamp(20px, 2.4vw, 26px);
-}
+    nav {
+      display: flex;
+      gap: 25px;
+    }
 
-.brand span {
-  color: var(--accent);
-}
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.2s;
+    }
 
-.tag {
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
+    nav a:hover,
+    nav a.active {
+      color: #d9a66b;
+    }
 
-main {
-  width: min(1100px, 88%);
-  margin: 0 auto;
-}
+    main {
+      width: 84%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 0;
+      min-height: 75vh;
+    }
 
-.hero {
-  min-height: 74vh;
-  display: grid;
-  align-content: center;
-  padding: 80px 0;
-}
+    .page {
+      display: none;
+    }
 
-.eyebrow {
-  color: var(--accent);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-}
+    .page.active {
+      display: block;
+    }
 
-h1 {
-  font-size: clamp(42px, 8vw, 88px);
-  line-height: .98;
-  letter-spacing: -.055em;
-  margin: 22px 0;
-  max-width: 850px;
-}
+    .hero {
+      margin-bottom: 75px;
+    }
 
-h1 span {
-  color: var(--accent);
-}
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.2;
+      max-width: 850px;
+      margin-bottom: 35px;
+    }
 
-.intro {
-  color: var(--muted);
-  max-width: 580px;
-  font-size: 19px;
-  line-height: 1.7;
-}
+    .contact {
+      margin-top: 30px;
+    }
 
-.name-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-  max-width: 510px;
-}
+    .address {
+      color: #d9a66b;
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
 
-input {
-  flex: 1 1 210px;
-  min-width: 0;
-  background: #202020;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
-  padding: 15px 16px;
-  font-size: 15px;
-}
+    .email-note {
+      color: #888;
+      font-size: 14px;
+    }
 
-input:focus {
-  border-color: var(--accent);
-  outline: none;
-}
+    .description {
+      border-top: 1px solid #292929;
+      padding-top: 35px;
+      max-width: 800px;
+    }
 
-button, .email-link {
-  border: 0;
-  border-radius: 8px;
-  padding: 15px 20px;
-  background: var(--accent);
-  color: #17120d;
-  font-size: 14px;
-  font-weight: 800;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-}
+    .description-label {
+      color: #d9a66b;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
 
-.contact {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 70px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
-  align-items: center;
-}
+    .description p {
+      color: #aaa;
+      font-size: 17px;
+      line-height: 1.8;
+    }
 
-h2 {
-  font-size: clamp(30px, 4vw, 46px);
-  margin: 12px 0;
-  letter-spacing: -.04em;
-}
+    .products-heading {
+      margin-bottom: 35px;
+    }
 
-.contact p,
-.description p {
-  color: var(--muted);
-  line-height: 1.75;
-}
+    .products-heading h1 {
+      margin-bottom: 15px;
+    }
 
-.email-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px;
-}
+    .products-heading p {
+      color: #999;
+      font-size: 16px;
+    }
 
-.email-card .address {
-  color: var(--text);
-  font-size: 21px;
-  overflow-wrap: anywhere;
-}
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
-.description {
-  padding: 58px 0 75px;
-}
+    .product-card {
+      background: #191a1f;
+      border: 1px solid #303036;
+      border-radius: 12px;
+      padding: 30px;
+      min-height: 190px;
+      cursor: pointer;
+      transition: 0.25s;
+      text-align: left;
+      color: white;
+      font-family: inherit;
+      width: 100%;
+    }
 
-.description-label {
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-weight: bold;
-}
+    .product-card:hover {
+      border-color: #d9a66b;
+      transform: translateY(-4px);
+      background: #202126;
+    }
 
-footer {
-  border-top: 1px solid var(--line);
-  padding: 24px 6%;
-  color: #777;
-  font-size: 12px;
-  text-align: center;
-}
+    .product-number {
+      color: #d9a66b;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
 
-@media(max-width:700px) {
-  header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+    .product-card h2 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
 
-  .contact {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    .product-card p {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .product-card:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .order-form {
+      display: none;
+      margin-top: 45px;
+      padding: 30px;
+      background: #191a1f;
+      border: 1px solid #303036;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
+    .order-form.show {
+      display: block;
+    }
+
+    .order-form h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .form-subtitle {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .order-form label {
+      display: block;
+      color: #ccc;
+      margin: 18px 0 9px;
+      font-size: 14px;
+    }
+
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      padding: 13px;
+      background: #101114;
+      color: white;
+      border: 1px solid #38383d;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .order-form input:focus,
+    .order-form textarea:focus {
+      border-color: #d9a66b;
+    }
+
+    .order-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-button {
+      margin-top: 22px;
+      padding: 14px 25px;
+      background: #d9a66b;
+      color: #101114;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .send-button:hover {
+      background: #e8b77d;
+    }
+
+    .cancel-button {
+      margin-left: 12px;
+      padding: 14px 18px;
+      background: transparent;
+      color: #aaa;
+      border: 1px solid #444;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      border-top: 1px solid #292929;
+      padding: 25px 8%;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 22px 6%;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      main {
+        width: 88%;
+        padding: 55px 0;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card:last-child {
+        grid-column: auto;
+      }
+
+      .product-card {
+        min-height: 165px;
+      }
+
+      .order-form {
+        padding: 22px;
+      }
+
+      .cancel-button {
+        margin: 12px 0 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="brand">
-    GnK <span>PRINTS</span>
-  </div>
+  <header>
+    <div class="brand">Pr1nts</div>
 
-  <div class="tag">
-    Made with a 3D printer
-  </div>
-</header>
+    <nav>
+      <a href="#home" class="active" onclick="showPage('home', this)">Home</a>
+      <a href="#products" onclick="showPage('products', this)">Products</a>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-<section class="hero">
+    <!-- HOME PAGE -->
 
-  <div class="eyebrow">
-    Welcome to our print workshop
-  </div>
+    <section id="home" class="page active">
 
-  <h1 id="greeting">
-    Garshok’s and Kartol’s prints
-  </h1>
+      <div class="hero">
+        <h1>
+          Hi, here you can order a print of a part or something other that you need.
+        </h1>
 
-  <p class="intro">
-    Welcome to GnK Prints — a small 3D-printing
-    project where ideas become real objects.
-  </p>
+        <div class="contact">
+          <p class="address">artoagh@gmail.com</p>
+          <p class="email-note">This is the mail of developer</p>
+        </div>
+      </div>
 
-  <form class="name-form" id="nameForm">
+      <section class="description">
+        <div class="description-label">Description</div>
 
-    <input
-      id="visitorName"
-      type="text"
-      maxlength="40"
-      placeholder="Enter your name"
-      aria-label="Your name"
-    >
+        <p>
+          Pr1nts is a small 3D printing project. We create printed parts and other objects based on ideas and requests. Our goal is to turn your ideas into real prints and give you needed details and parts of something.
+        </p>
+      </section>
 
-    <button type="submit">
-      Say hello
-    </button>
+    </section>
 
-  </form>
 
-</section>
+    <!-- PRODUCTS PAGE -->
 
-<section class="contact" id="contact">
+    <section id="products" class="page">
 
-  <div>
+      <div class="products-heading">
+        <h1>Choose what you need.</h1>
+        <p>Select a category to make an order.</p>
+      </div>
 
-    <div class="eyebrow">
-      Have a question?
-    </div>
+      <div class="products-grid">
 
-    <h2>
-      Let’s talk about your print.
-    </h2>
+        <button class="product-card"
+          onclick="openOrder('Part of something')">
+          <div class="product-number">01</div>
+          <h2>Part of something</h2>
+          <p>Order a custom 3D printed part or detail.</p>
+        </button>
 
-    <p>
-      Want to ask about a 3D-printed part,
-      discuss an idea, or find out more?
-      Send us an email and tell us what you have in mind.
-    </p>
-
-  </div>
-
-  <div class="email-card">
-
-    <p class="tag">
-      Contact email
-    </p>
-
-    <p class="address">
-      artoagh@gmail.com
-    </p>
-
-    <a
-      class="email-link"
-      href="mailto:artoagh@gmail.com?subject=Question%20about%20a%20print"
-    >
-      Email us
-    </a>
-
-  </div>
-
-</section>
-
-<section class="description">
-
-  <div class="description-label">
-    Text developer
-  </div>
-
-  <h2>
-    About this section
-  </h2>
-
-  <p>
-    This is the description area for the contact block.
-    We can replace this text with your own explanation,
-    details about your prints, or information for customers.
-  </p>
-
-</section>
-
-</main>
-
-<footer>
-  © 2026 GnK Prints
-</footer>
-
-<script>
-
-const form = document.getElementById('nameForm');
-const input = document.getElementById('visitorName');
-const greeting = document.getElementById('greeting');
-
-form.addEventListener('submit', function(event) {
-
-  event.preventDefault();
-
-  const name = input.value.trim();
-
-  if (!name) {
-    input.focus();
-    return;
-  }
-
-  greeting.textContent = `Hello, ${name}!`;
-
-  localStorage.setItem('printsVisitorName', name);
-
-});
-
-const savedName = localStorage.getItem('printsVisitorName');
-
-if (savedName) {
-  input.value = savedName;
-  greeting.textContent = `Hello, ${savedName}!`;
-}
-
-</script>
-
-</body>
-</html>
+        <button class="product-card"
+          onclick="openOrder('Fidget')">
+          <div cl
