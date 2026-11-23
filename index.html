@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SOFA HOME</title>
+
+<style>
+
+* { box-sizing: border-box; }
+
+body {
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background: #f5f1eb;
+
+  color: #292722;
+
+}
+
+header {
+
+  padding: 25px 8%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #292d29;
+
+  color: white;
+
+}
+
+.logo { font-size: 25px; font-weight: bold; }
+
+nav a {
+
+  color: white;
+
+  text-decoration: none;
+
+  margin-left: 25px;
+
+}
+
+.hero {
+
+  min-height: 520px;
+
+  padding: 60px 8%;
+
+  display: flex;
+
+  align-items: center;
+
+  background: linear-gradient(90deg, #0008, transparent),
+
+  url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600') center/cover;
+
+  color: white;
+
+}
+
+.hero div { max-width: 550px; }
+
+h1 { font-size: 55px; }
+
+.hero p { font-size: 19px; line-height: 1.6; }
+
+button {
+
+  background: #b99b78;
+
+  border: none;
+
+  padding: 16px 30px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  color: white;
+
+}
+
+section { padding: 60px 8%; text-align: center; }
+
+footer {
+
+  background: #292d29;
+
+  color: white;
+
+  padding: 30px;
+
+  text-align: center;
+
+}
+
+@media(max-width:600px) {
+
+  h1 { font-size: 38px; }
+
+  nav a { margin-left: 8px; font-size: 12px; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">SOFA HOME</div>
+
+  <nav>
+
+    <a href="#">Главная</a>
+
+    <a href="#about">О нас</a>
+
+  </nav>
+
+</header>
+
+<div class="hero">
+
+  <div>
+
+    <h1>Комфорт начинается дома</h1>
+
+    <p>Открой для себя коллекцию современных диванов и создай уют в своём доме.</p>
+
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+
+      Узнать больше
+
+    </button>
+
+  </div>
+
+</div>
+
+<section id="about">
+
+  <h2>SOFA HOME</h2>
+
+  <p>Стиль, комфорт и качество для твоего дома.</p>
+
+</section>
+
+<footer>© 2026 SOFA HOME</footer>
+
+</body>
+
+</html>
