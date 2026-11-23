@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choose your 3D printing order at Pr1nts.">
+  <title>Products | Pr1nts</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #101114;
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 25px 8%;
+      border-bottom: 1px solid #292929;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand {
+      color: #d9a66b;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #d9a66b;
+    }
+
+    main {
+      width: 84%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 0;
+      flex: 1;
+    }
+
+    .products-heading {
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin-bottom: 15px;
+    }
+
+    .products-heading p {
+      color: #999;
+      font-size: 16px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      display: block;
+      background: #191a1f;
+      border: 1px solid #303036;
+      border-radius: 12px;
+      padding: 30px;
+      min-height: 190px;
+      cursor: pointer;
+      transition: 0.25s;
+      text-align: left;
+      color: white;
+      font-family: inherit;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .product-card:hover {
+      border-color: #d9a66b;
+      transform: translateY(-4px);
+      background: #202126;
+    }
+
+    .product-number {
+      color: #d9a66b;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .product-card h2 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .product-card:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .order-form {
+      display: none;
+      margin-top: 45px;
+      padding: 30px;
+      background: #191a1f;
+      border: 1px solid #303036;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
+    .order-form.show {
+      display: block;
+    }
+
+    .order-form h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .form-subtitle {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .order-form label {
+      display: block;
+      color: #ccc;
+      margin: 18px 0 9px;
+      font-size: 14px;
+    }
+
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      padding: 13px;
+      background: #101114;
+      color: white;
+      border: 1px solid #38383d;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .order-form input:focus,
+    .order-form textarea:focus {
+      border-color: #d9a66b;
+    }
+
+    .order-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-button {
+      margin-top: 22px;
+      padding: 14px 25px;
+      background: #d9a66b;
+      color: #101114;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .send-button:hover {
+      background: #e8b77d;
+    }
+
+    .cancel-button {
+      margin-left: 12px;
+      padding: 14px 18px;
+      background: transparent;
+      color: #aaa;
+      border: 1px solid #444;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      border-top: 1px solid #292929;
+      padding: 25px 8%;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 22px 6%;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      main {
+        width: 88%;
+        padding: 55px 0;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card:last-child {
+        grid-column: auto;
+      }
+
+      .product-card {
+        min-height: 165px;
+      }
+
+      .order-form {
+        padding: 22px;
+      }
+
+      .cancel-button {
+        margin: 12px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">Pr1nts</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="products-heading">
+      <h1>Choose what you need.</h1>
+      <p>Select a category to make an order.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <button class="product-card"
+        onclick="openOrder('Part of something')">
+        <div class="product-number">01</div>
+        <h2>Part of something</h2>
+        <p>Order a custom 3D printed part or detail.</p>
+      </button>
+
+      <button class="product-card"
+        onclick="openOrder('Fidget')">
+        <div class="product-number">02</div>
+        <h2>Fidget</h2>
+        <p>Order a fidget toy or something fun.</p>
+      </button>
+
+      <button class="product-card"
+        onclick="openOrder('Something other')">
+        <div class="product-number">03</div>
+        <h2>Something other</h2>
+        <p>Have another idea? Tell us what you need.</p>
+      </button>
+
+    </div>
+
+    <form class="order-form" id="orderForm"
+      onsubmit="sendOrder(event)">
+
+      <h2 id="formTitle">Make an order</h2>
+
+      <p class="form-subtitle">
+        Tell us what you would like us to print.
+      </p>
+
+      <input type="hidden" id="category">
+
+      <label for="customerName">Your name</label>
+      <input
+        type="text"
+        id="customerName"
+        placeholder="Enter your name"
+        required
+      >
+
+      <label for="customerEmail">Your email</label>
+      <input
+        type="email"
+        id="customerEmail"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="orderDetails">What do you need?</label>
+      <textarea
+        id="orderDetails"
+        placeholder="Describe the part, fidget or your idea..."
+        required
+      ></textarea>
+
+      <button type="submit" class="send-button">
+        Send order
+      </button>
+
+      <button
+        type="button"
+        class="cancel-button"
+        onclick="closeOrder()">
+        Cancel
+      </button>
+
+    </form>
+
+  </main>
+
+  <footer>
+    © 2026 Pr1nts
+  </footer>
+
+  <script>
+    function openOrder(category) {
+      const form = document.getElementById('orderForm');
+
+      document.getElementById('category').value = category;
+
+      document.getElementById('formTitle').textContent =
+        'Order: ' + category;
+
+      form.classList.add('show');
+
+      f
