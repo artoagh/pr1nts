@@ -6,11 +6,7 @@
   <title>Products | Pr1nts</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: #101114;
@@ -27,27 +23,16 @@
       border-bottom: 1px solid #292a2f;
     }
 
-    .logo {
-      color: #d9a66b;
-      font-size: 27px;
-      font-weight: bold;
-    }
+    .logo { color: #d9a66b; font-size: 27px; font-weight: bold; }
 
-    nav {
-      display: flex;
-      gap: 25px;
-    }
+    nav { display: flex; gap: 25px; }
 
     nav a {
       color: #aaa;
       text-decoration: none;
-      transition: 0.2s;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #d9a66b;
-    }
+    nav a:hover, nav a.active { color: #d9a66b; }
 
     main {
       max-width: 1100px;
@@ -55,10 +40,7 @@
       padding: 0 25px;
     }
 
-    h1 {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
+    h1 { font-size: 38px; margin-bottom: 12px; }
 
     .subtitle {
       color: #999;
@@ -77,12 +59,9 @@
       border: 1px solid #292a30;
       border-radius: 14px;
       overflow: hidden;
-      transition: 0.2s;
     }
 
-    details:hover {
-      border-color: #d9a66b;
-    }
+    details:hover { border-color: #d9a66b; }
 
     summary {
       padding: 28px;
@@ -90,9 +69,7 @@
       list-style: none;
     }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
+    summary::-webkit-details-marker { display: none; }
 
     summary h2 {
       color: #d9a66b;
@@ -100,14 +77,9 @@
       margin-bottom: 10px;
     }
 
-    summary p {
-      color: #aaa;
-      line-height: 1.5;
-    }
+    summary p { color: #aaa; line-height: 1.5; }
 
-    .form-content {
-      padding: 0 28px 28px;
-    }
+    .form-content { padding: 0 28px 28px; }
 
     .form-content input,
     .form-content textarea {
@@ -145,9 +117,7 @@
       cursor: pointer;
     }
 
-    .form-content button:hover {
-      background: #e8b77e;
-    }
+    .form-content button:hover { background: #e8b77e; }
 
     .form-note {
       color: #888;
@@ -156,9 +126,7 @@
       margin-top: 12px;
     }
 
-    .other {
-      grid-column: span 2;
-    }
+    .other { grid-column: span 2; }
 
     footer {
       text-align: center;
@@ -169,29 +137,12 @@
     }
 
     @media (max-width: 650px) {
-      header {
-        padding: 20px;
-      }
-
-      nav {
-        gap: 15px;
-      }
-
-      main {
-        margin-top: 45px;
-      }
-
-      h1 {
-        font-size: 31px;
-      }
-
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      .other {
-        grid-column: span 1;
-      }
+      header { padding: 20px; }
+      nav { gap: 15px; }
+      main { margin-top: 45px; }
+      h1 { font-size: 31px; }
+      .products { grid-template-columns: 1fr; }
+      .other { grid-column: span 1; }
     }
   </style>
 </head>
@@ -200,7 +151,6 @@
 
 <header>
   <div class="logo">Pr1nts</div>
-
   <nav>
     <a href="/pr1nts/">Home</a>
     <a href="/pr1nts/products.html" class="active">Products</a>
@@ -209,126 +159,80 @@
 
 <main>
   <h1>Products</h1>
-
-  <p class="subtitle">
-    Choose what you need and send us your request.
-  </p>
+  <p class="subtitle">Choose what you need and send us your request.</p>
 
   <div class="products">
 
-    <!-- PART OF SOMETHING -->
     <details>
       <summary>
         <h2>Part of something</h2>
         <p>Need a custom 3D printed part or detail?</p>
       </summary>
-
       <div class="form-content">
-        <form action="https://formsubmit.co/artoagh@gmail.com"
-              method="POST">
+        <form action="https://formsubmit.co/artoagh@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Pr1nts order - Part of something">
+          <input type="hidden" name="Category" value="Part of something">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
 
-          <input type="hidden" name="_subject"
-                 value="New Pr1nts order - Part of something">
-
-          <input type="hidden" name="Category"
-                 value="Part of something">
-
-          <input type="hidden" name="_template"
-                 value="table">
-
-          <input type="text" name="_honey"
-                 style="display:none">
-
-          <input type="text" name="Name"
-                 placeholder="Your name" required>
-
-          <input type="email" name="email"
-                 placeholder="Your email" required>
-
-          <input type="text" name="City"
-                 placeholder="City (optional)">
-
-          <textarea name="Order details"
-                    placeholder="Describe the part you need..."
-                    required></textarea>
+          <input type="text" name="Name" placeholder="Your name" required>
+          <input type="email" name="Email" placeholder="Your email" required>
+          <input type="text" name="Address to send to" placeholder="Address to send to" required>
+          <textarea name="Order details" placeholder="Describe the part you need..." required></textarea>
 
           <button type="submit">Send order</button>
-
-          <p class="form-note">
-            Please don't enter your home address here.
-            Delivery details can be arranged privately with a parent or guardian.
-          </p>
         </form>
       </div>
     </details>
 
-    <!-- FIDGET -->
     <details>
       <summary>
         <h2>Fidget</h2>
         <p>Looking for a fidget toy or something fun?</p>
       </summary>
-
       <div class="form-content">
-        <form action="https://formsubmit.co/artoagh@gmail.com"
-              method="POST">
+        <form action="https://formsubmit.co/artoagh@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Pr1nts order - Fidget">
+          <input type="hidden" name="Category" value="Fidget">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
 
-          <input type="hidden" name="_subject"
-                 value="New Pr1nts order - Fidget">
-
-          <input type="hidden" name="Category"
-                 value="Fidget">
-
-          <input type="hidden" name="_template"
-                 value="table">
-
-          <input type="text" name="_honey"
-                 style="display:none">
-
-          <input type="text" name="Name"
-                 placeholder="Your name" required>
-
-          <input type="email" name="email"
-                 placeholder="Your email" required>
-
-          <input type="text" name="City"
-                 placeholder="City (optional)">
-
-          <textarea name="Order details"
-                    placeholder="Describe what you want..."
-                    required></textarea>
+          <input type="text" name="Name" placeholder="Your name" required>
+          <input type="email" name="Email" placeholder="Your email" required>
+          <input type="text" name="Address to send to" placeholder="Address to send to" required>
+          <textarea name="Order details" placeholder="Describe what you want..." required></textarea>
 
           <button type="submit">Send order</button>
-
-          <p class="form-note">
-            Please don't enter your home address here.
-            Delivery details can be arranged privately with a parent or guardian.
-          </p>
         </form>
       </div>
     </details>
 
-    <!-- SOMETHING OTHER -->
     <details class="other">
       <summary>
         <h2>Something other</h2>
         <p>Have another idea? Tell us what you want to print.</p>
       </summary>
-
       <div class="form-content">
-        <form action="https://formsubmit.co/artoagh@gmail.com"
-              method="POST">
+        <form action="https://formsubmit.co/artoagh@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Pr1nts order - Something other">
+          <input type="hidden" name="Category" value="Something other">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
 
-          <input type="hidden" name="_subject"
-                 value="New Pr1nts order - Something other">
+          <input type="text" name="Name" placeholder="Your name" required>
+          <input type="email" name="Email" placeholder="Your email" required>
+          <input type="text" name="Address to send to" placeholder="Address to send to" required>
+          <textarea name="Order details" placeholder="Tell us about your idea..." required></textarea>
 
-          <input type="hidden" name="Category"
-                 value="Something other">
+          <button type="submit">Send order</button>
+        </form>
+      </div>
+    </details>
 
-          <input type="hidden" name="_template"
-                 value="table">
+  </div>
+</main>
 
-          <input type="text" name="_honey"
-                 style="display:none">
+<footer>© 2026 Pr1nts</footer>
 
-          <input type="text" name="Name"
+</body>
+</html>
