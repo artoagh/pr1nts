@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pr1nts - Custom 3D printing and printed parts.">
   <title>Pr1nts</title>
-  
+
   <style>
     * {
       margin: 0;
@@ -66,14 +66,6 @@
       min-height: 75vh;
     }
 
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
     .hero {
       margin-bottom: 75px;
     }
@@ -121,149 +113,6 @@
       line-height: 1.8;
     }
 
-    .products-heading {
-      margin-bottom: 35px;
-    }
-
-    .products-heading h1 {
-      margin-bottom: 15px;
-    }
-
-    .products-heading p {
-      color: #999;
-      font-size: 16px;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      background: #191a1f;
-      border: 1px solid #303036;
-      border-radius: 12px;
-      padding: 30px;
-      min-height: 190px;
-      cursor: pointer;
-      transition: 0.25s;
-      text-align: left;
-      color: white;
-      font-family: inherit;
-      width: 100%;
-    }
-
-    .product-card:hover {
-      border-color: #d9a66b;
-      transform: translateY(-4px);
-      background: #202126;
-    }
-
-    .product-number {
-      color: #d9a66b;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-
-    .product-card h2 {
-      font-size: 23px;
-      margin-bottom: 12px;
-    }
-
-    .product-card p {
-      color: #999;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .product-card:last-child {
-      grid-column: 1 / -1;
-    }
-
-    .order-form {
-      display: none;
-      margin-top: 45px;
-      padding: 30px;
-      background: #191a1f;
-      border: 1px solid #303036;
-      border-radius: 12px;
-      max-width: 700px;
-    }
-
-    .order-form.show {
-      display: block;
-    }
-
-    .order-form h2 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .form-subtitle {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .order-form label {
-      display: block;
-      color: #ccc;
-      margin: 18px 0 9px;
-      font-size: 14px;
-    }
-
-    .order-form input,
-    .order-form textarea {
-      width: 100%;
-      padding: 13px;
-      background: #101114;
-      color: white;
-      border: 1px solid #38383d;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .order-form input:focus,
-    .order-form textarea:focus {
-      border-color: #d9a66b;
-    }
-
-    .order-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .send-button {
-      margin-top: 22px;
-      padding: 14px 25px;
-      background: #d9a66b;
-      color: #101114;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .send-button:hover {
-      background: #e8b77d;
-    }
-
-    .cancel-button {
-      margin-left: 12px;
-      padding: 14px 18px;
-      background: transparent;
-      color: #aaa;
-      border: 1px solid #444;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
     footer {
       border-top: 1px solid #292929;
       padding: 25px 8%;
@@ -288,26 +137,6 @@
       h1 {
         font-size: 34px;
       }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-card:last-child {
-        grid-column: auto;
-      }
-
-      .product-card {
-        min-height: 165px;
-      }
-
-      .order-form {
-        padding: 22px;
-      }
-
-      .cancel-button {
-        margin: 12px 0 0;
-      }
     }
   </style>
 </head>
@@ -318,57 +147,37 @@
     <div class="brand">Pr1nts</div>
 
     <nav>
-      <a href="#home" class="active" onclick="showPage('home', this)">Home</a>
-      <a href="#products" onclick="showPage('products', this)">Products</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- HOME PAGE -->
+    <div class="hero">
+      <h1>
+        Hi, here you can order a print of a part or something other that you need.
+      </h1>
 
-    <section id="home" class="page active">
-
-      <div class="hero">
-        <h1>
-          Hi, here you can order a print of a part or something other that you need.
-        </h1>
-
-        <div class="contact">
-          <p class="address">artoagh@gmail.com</p>
-          <p class="email-note">This is the mail of developer</p>
-        </div>
+      <div class="contact">
+        <p class="address">artoagh@gmail.com</p>
+        <p class="email-note">This is the mail of developer</p>
       </div>
+    </div>
 
-      <section class="description">
-        <div class="description-label">Description</div>
+    <section class="description">
+      <div class="description-label">Description</div>
 
-        <p>
-          Pr1nts is a small 3D printing project. We create printed parts and other objects based on ideas and requests. Our goal is to turn your ideas into real prints and give you needed details and parts of something.
-        </p>
-      </section>
-
+      <p>
+        Pr1nts is a small 3D printing project. We create printed parts and other objects based on ideas and requests. Our goal is to turn your ideas into real prints and give you needed details and parts of something.
+      </p>
     </section>
 
+  </main>
 
-    <!-- PRODUCTS PAGE -->
+  <footer>
+    © 2026 Pr1nts
+  </footer>
 
-    <section id="products" class="page">
-
-      <div class="products-heading">
-        <h1>Choose what you need.</h1>
-        <p>Select a category to make an order.</p>
-      </div>
-
-      <div class="products-grid">
-
-        <button class="product-card"
-          onclick="openOrder('Part of something')">
-          <div class="product-number">01</div>
-          <h2>Part of something</h2>
-          <p>Order a custom 3D printed part or detail.</p>
-        </button>
-
-        <button class="product-card"
-          onclick="openOrder('Fidget')">
-          <div cl
+</body>
+</html>
