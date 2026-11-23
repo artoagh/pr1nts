@@ -13,29 +13,24 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
       background: #101114;
-      color: #f5f5f5;
+      color: #f2f0ec;
+      font-family: Arial, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header {
       padding: 25px 8%;
-      border-bottom: 1px solid #292929;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      border-bottom: 1px solid #292a2f;
     }
 
-    .brand {
+    .logo {
       color: #d9a66b;
-      font-size: 28px;
+      font-size: 27px;
       font-weight: bold;
-      letter-spacing: 1px;
     }
 
     nav {
@@ -46,7 +41,7 @@
     nav a {
       color: #aaa;
       text-decoration: none;
-      font-size: 15px;
+      transition: 0.2s;
     }
 
     nav a:hover,
@@ -55,47 +50,42 @@
     }
 
     main {
-      width: 84%;
       max-width: 1100px;
-      margin: auto;
-      padding: 75px 0;
-      flex: 1;
+      margin: 65px auto;
+      padding: 0 25px;
     }
 
     h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      margin-bottom: 15px;
+      font-size: 38px;
+      margin-bottom: 12px;
     }
 
     .subtitle {
       color: #999;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
+      line-height: 1.6;
     }
 
-    .products-grid {
+    .products {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      align-items: start;
     }
 
     details {
       background: #191a1f;
-      border: 1px solid #303036;
-      border-radius: 12px;
-      transition: 0.25s;
+      border: 1px solid #292a30;
+      border-radius: 14px;
       overflow: hidden;
+      transition: 0.2s;
     }
 
-    details:hover,
-    details[open] {
+    details:hover {
       border-color: #d9a66b;
-      background: #202126;
     }
 
     summary {
-      padding: 30px;
-      min-height: 190px;
+      padding: 28px;
       cursor: pointer;
       list-style: none;
     }
@@ -104,130 +94,103 @@
       display: none;
     }
 
-    summary::marker {
-      content: "";
-    }
-
-    .product-number {
-      color: #d9a66b;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-
     summary h2 {
-      font-size: 23px;
-      margin-bottom: 12px;
-    }
-
-    summary p {
-      color: #999;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .form-content {
-      padding: 0 25px 30px;
-      border-top: 1px solid #303036;
-    }
-
-    .form-content h3 {
-      font-size: 23px;
-      margin-top: 25px;
+      color: #d9a66b;
+      font-size: 22px;
       margin-bottom: 10px;
     }
 
-    .form-description {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 20px;
+    summary p {
+      color: #aaa;
+      line-height: 1.5;
     }
 
-    label {
-      display: block;
-      color: #ccc;
-      margin: 18px 0 9px;
-      font-size: 14px;
+    .form-content {
+      padding: 0 28px 28px;
     }
 
-    input,
-    textarea {
+    .form-content input,
+    .form-content textarea {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
+      margin-top: 14px;
       background: #101114;
+      border: 1px solid #34353b;
+      border-radius: 8px;
       color: white;
-      border: 1px solid #38383d;
-      border-radius: 6px;
-      font-family: inherit;
       font-size: 15px;
       outline: none;
     }
 
-    input:focus,
-    textarea:focus {
+    .form-content input:focus,
+    .form-content textarea:focus {
       border-color: #d9a66b;
     }
 
-    textarea {
-      min-height: 110px;
+    .form-content textarea {
+      min-height: 120px;
       resize: vertical;
     }
 
-    .send-button {
-      margin-top: 22px;
-      padding: 14px 25px;
+    .form-content button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
       background: #d9a66b;
       color: #101114;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .send-button:hover {
-      background: #e8b77d;
+    .form-content button:hover {
+      background: #e8b77e;
     }
 
-    .product-card:last-child {
-      grid-column: 1 / -1;
+    .form-note {
+      color: #888;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 12px;
+    }
+
+    .other {
+      grid-column: span 2;
     }
 
     footer {
-      border-top: 1px solid #292929;
-      padding: 25px 8%;
-      color: #777;
-      font-size: 13px;
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      border-top: 1px solid #292a2f;
+      margin-top: 70px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       header {
-        padding: 22px 6%;
+        padding: 20px;
       }
 
       nav {
-        gap: 18px;
+        gap: 15px;
       }
 
       main {
-        width: 88%;
-        padding: 55px 0;
+        margin-top: 45px;
       }
 
       h1 {
-        font-size: 34px;
+        font-size: 31px;
       }
 
-      .products-grid {
+      .products {
         grid-template-columns: 1fr;
       }
 
-      .product-card:last-child {
-        grid-column: auto;
-      }
-
-      summary {
-        min-height: 165px;
+      .other {
+        grid-column: span 1;
       }
     }
   </style>
@@ -235,107 +198,137 @@
 
 <body>
 
-  <header>
-    <div class="brand">Pr1nts</div>
+<header>
+  <div class="logo">Pr1nts</div>
 
-    <nav>
-      <a href="/pr1nts/">Home</a>
-      <a href="/pr1nts/products.html" class="active">Products</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="/pr1nts/">Home</a>
+    <a href="/pr1nts/products.html" class="active">Products</a>
+  </nav>
+</header>
 
-  <main>
+<main>
+  <h1>Products</h1>
 
-    <h1>Choose what you need.</h1>
-    <p class="subtitle">Select a category to make an order.</p>
+  <p class="subtitle">
+    Choose what you need and send us your request.
+  </p>
 
-    <div class="products-grid">
+  <div class="products">
 
-      <!-- PART OF SOMETHING -->
+    <!-- PART OF SOMETHING -->
+    <details>
+      <summary>
+        <h2>Part of something</h2>
+        <p>Need a custom 3D printed part or detail?</p>
+      </summary>
 
-      <details class="product-card">
-        <summary>
-          <div class="product-number">01</div>
-          <h2>Part of something</h2>
-          <p>Order a custom 3D printed part or detail.</p>
-        </summary>
+      <div class="form-content">
+        <form action="https://formsubmit.co/artoagh@gmail.com"
+              method="POST">
 
-        <div class="form-content">
-          <h3>Make an order</h3>
-          <p class="form-description">
-            Tell us about the part you need.
+          <input type="hidden" name="_subject"
+                 value="New Pr1nts order - Part of something">
+
+          <input type="hidden" name="Category"
+                 value="Part of something">
+
+          <input type="hidden" name="_template"
+                 value="table">
+
+          <input type="text" name="_honey"
+                 style="display:none">
+
+          <input type="text" name="Name"
+                 placeholder="Your name" required>
+
+          <input type="email" name="email"
+                 placeholder="Your email" required>
+
+          <input type="text" name="City"
+                 placeholder="City (optional)">
+
+          <textarea name="Order details"
+                    placeholder="Describe the part you need..."
+                    required></textarea>
+
+          <button type="submit">Send order</button>
+
+          <p class="form-note">
+            Please don't enter your home address here.
+            Delivery details can be arranged privately with a parent or guardian.
           </p>
+        </form>
+      </div>
+    </details>
 
-          <form onsubmit="sendOrder(event, 'Part of something')">
+    <!-- FIDGET -->
+    <details>
+      <summary>
+        <h2>Fidget</h2>
+        <p>Looking for a fidget toy or something fun?</p>
+      </summary>
 
-            <label>Your name</label>
-            <input type="text" name="name" placeholder="Enter your name" required>
+      <div class="form-content">
+        <form action="https://formsubmit.co/artoagh@gmail.com"
+              method="POST">
 
-            <label>Your email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+          <input type="hidden" name="_subject"
+                 value="New Pr1nts order - Fidget">
 
-            <label>Delivery address</label>
-            <input type="text" name="address" placeholder="Enter delivery address" required>
+          <input type="hidden" name="Category"
+                 value="Fidget">
 
-            <label>What do you need?</label>
-            <textarea name="details" placeholder="Describe the part..." required></textarea>
+          <input type="hidden" name="_template"
+                 value="table">
 
-            <button type="submit" class="send-button">Send order</button>
+          <input type="text" name="_honey"
+                 style="display:none">
 
-          </form>
-        </div>
-      </details>
+          <input type="text" name="Name"
+                 placeholder="Your name" required>
 
-      <!-- FIDGET -->
+          <input type="email" name="email"
+                 placeholder="Your email" required>
 
-      <details class="product-card">
-        <summary>
-          <div class="product-number">02</div>
-          <h2>Fidget</h2>
-          <p>Order a fidget toy or something fun.</p>
-        </summary>
+          <input type="text" name="City"
+                 placeholder="City (optional)">
 
-        <div class="form-content">
-          <h3>Make an order</h3>
-          <p class="form-description">
-            Tell us which fidget you would like.
+          <textarea name="Order details"
+                    placeholder="Describe what you want..."
+                    required></textarea>
+
+          <button type="submit">Send order</button>
+
+          <p class="form-note">
+            Please don't enter your home address here.
+            Delivery details can be arranged privately with a parent or guardian.
           </p>
+        </form>
+      </div>
+    </details>
 
-          <form onsubmit="sendOrder(event, 'Fidget')">
+    <!-- SOMETHING OTHER -->
+    <details class="other">
+      <summary>
+        <h2>Something other</h2>
+        <p>Have another idea? Tell us what you want to print.</p>
+      </summary>
 
-            <label>Your name</label>
-            <input type="text" name="name" placeholder="Enter your name" required>
+      <div class="form-content">
+        <form action="https://formsubmit.co/artoagh@gmail.com"
+              method="POST">
 
-            <label>Your email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+          <input type="hidden" name="_subject"
+                 value="New Pr1nts order - Something other">
 
-            <label>Delivery address</label>
-            <input type="text" name="address" placeholder="Enter delivery address" required>
+          <input type="hidden" name="Category"
+                 value="Something other">
 
-            <label>What do you need?</label>
-            <textarea name="details" placeholder="Describe the fidget..." required></textarea>
+          <input type="hidden" name="_template"
+                 value="table">
 
-            <button type="submit" class="send-button">Send order</button>
+          <input type="text" name="_honey"
+                 style="display:none">
 
-          </form>
-        </div>
-      </details>
-
-      <!-- SOMETHING OTHER -->
-
-      <details class="product-card">
-        <summary>
-          <div class="product-number">03</div>
-          <h2>Something other</h2>
-          <p>Have another idea? Tell us what you need.</p>
-        </summary>
-
-        <div class="form-content">
-          <h3>Make an order</h3>
-          <p class="form-description">
-            Describe your own idea.
-          </p>
-
-          <form onsubmit="sendOrder(event, 'Something other')">
-
-            <label>Your name</label>
+          <input type="text" name="Name"
