@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pr1nts - Custom 3D printing and printed parts.">
   <title>Pr1nts</title>
 
   <style>
@@ -13,129 +12,191 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: Arial, sans-serif;
       background: #101114;
-      color: #f5f5f5;
+      color: #f2f0ec;
+      font-family: Arial, sans-serif;
       min-height: 100vh;
     }
 
     header {
       padding: 25px 8%;
-      border-bottom: 1px solid #292929;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      border-bottom: 1px solid #292a2f;
     }
 
-    .brand {
+    .logo {
       color: #d9a66b;
-      font-size: 28px;
+      font-size: 27px;
       font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      font-size: 15px;
-      transition: 0.2s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #d9a66b;
     }
 
     main {
-      width: 84%;
       max-width: 1100px;
-      margin: auto;
-      padding: 75px 0;
-      min-height: 75vh;
+      margin: 100px auto;
+      padding: 0 25px;
     }
 
-    .hero {
-      margin-bottom: 75px;
+    .hero p {
+      color: #aaa;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 650px;
     }
 
-    h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.2;
-      max-width: 850px;
-      margin-bottom: 35px;
+    .email-section {
+      margin-top: 35px;
+      padding: 25px;
+      background: #191a1f;
+      border: 1px solid #292a30;
+      border-radius: 12px;
+      display: inline-block;
     }
 
-    .contact {
-      margin-top: 30px;
-    }
-
-    .address {
+    .email-section a {
       color: #d9a66b;
-      font-size: 19px;
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 8px;
+      text-decoration: none;
     }
 
-    .email-note {
+    .email-section a:hover {
+      color: #e8b77e;
+    }
+
+    .email-section p {
       color: #888;
       font-size: 14px;
+      margin-top: 9px;
     }
 
     .description {
-      border-top: 1px solid #292929;
-      padding-top: 35px;
-      max-width: 800px;
+      margin-top: 90px;
+      max-width: 750px;
     }
 
-    .description-label {
+    .description h2,
+    .how-it-works h2,
+    .faq h2 {
       color: #d9a66b;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+      font-size: 27px;
       margin-bottom: 18px;
     }
 
     .description p {
       color: #aaa;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.8;
     }
 
-    footer {
-      border-top: 1px solid #292929;
-      padding: 25px 8%;
-      color: #777;
-      font-size: 13px;
+    .how-it-works {
+      margin-top: 75px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 22px 6%;
-      }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-      nav {
-        gap: 18px;
+    .step {
+      background: #191a1f;
+      border: 1px solid #292a30;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .step-number {
+      color: #d9a66b;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      color: #f2f0ec;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .faq {
+      margin-top: 85px;
+      max-width: 850px;
+    }
+
+    .faq-item {
+      background: #191a1f;
+      border: 1px solid #292a30;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 20px;
+      color: #f2f0ec;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      list-style: none;
+      position: relative;
+      padding-right: 45px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      color: #d9a66b;
+      font-size: 23px;
+      position: absolute;
+      right: 20px;
+      top: 14px;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      padding: 0 20px 20px;
+      color: #999;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      border-top: 1px solid #292a2f;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 20px;
       }
 
       main {
-        width: 88%;
-        padding: 55px 0;
+        margin-top: 65px;
       }
 
-      h1 {
-        font-size: 34px;
+      .email-section {
+        width: 100%;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -143,41 +204,122 @@
 
 <body>
 
-  <header>
-    <div class="brand">Pr1nts</div>
+<header>
+  <div class="logo">Pr1nts</div>
+</header>
 
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="products.html">Products</a>
-    </nav>
-  </header>
+<main>
 
-  <main>
+  <section class="hero">
+    <p>
+      This website was created to help you find the parts you need,
+      bring your ideas to life, and turn your concepts into real 3D prints.
+    </p>
 
-    <div class="hero">
-      <h1>
-        Hi, here you can order a print of a part or something other that you need.
-      </h1>
+    <div class="email-section">
+      <a href="mailto:artoagh@gmail.com">
+        artoagh@gmail.com
+      </a>
 
-      <div class="contact">
-        <p class="address">artoagh@gmail.com</p>
-        <p class="email-note">This is the mail of developer</p>
-      </div>
+      <p>Send orders to this mail</p>
     </div>
+  </section>
 
-    <section class="description">
-      <div class="description-label">Description</div>
+  <section class="description">
+    <h2>Description</h2>
 
+    <p>
+      Pr1nts is a small 3D printing project. We create printed parts
+      and other objects based on ideas and requests. Our goal is to
+      turn your ideas into real prints and give you needed details
+      and parts of something.
+    </p>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How it works</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3>Send your idea</h3>
+        <p>
+          Tell us what you need or send us a picture or a 3D model
+          of the object you want to print.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3>Discuss the details</h3>
+        <p>
+          We discuss the size, material and other important details
+          of your requested print.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">03</div>
+        <h3>Your print is ready</h3>
+        <p>
+          Once everything is agreed upon, we prepare your 3D print.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="faq-item">
+      <summary>How long does printing take?</summary>
       <p>
-        Pr1nts is a small 3D printing project. We create printed parts and other objects based on ideas and requests. Our goal is to turn your ideas into real prints and give you needed details and parts of something.
+        Printing time depends on the size, shape and complexity
+        of the requested object.
       </p>
-    </section>
+    </details>
 
-  </main>
+    <details class="faq-item">
+      <summary>What materials do you use?</summary>
+      <p>
+        We use PLA, PETG and TPU. The material depends on the
+        requirements and purpose of your requested print.
+      </p>
+    </details>
 
-  <footer>
-    © 2026 Pr1nts
-  </footer>
+    <details class="faq-item">
+      <summary>Can I order my own design?</summary>
+      <p>
+        Yes! You can send your own 3D model or an idea of what
+        you want to create.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I request a custom size?</summary>
+      <p>
+        Yes! Custom sizes are possible as long as the object
+        fits within our maximum printing size of 17 cm³.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How can I place an order?</summary>
+      <p>
+        Send an email to artoagh@gmail.com with your idea,
+        details and any reference pictures or 3D models.
+      </p>
+    </details>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Pr1nts
+</footer>
 
 </body>
 </html>
